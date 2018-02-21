@@ -7,7 +7,7 @@ describe "as a user when i visit / " do
 
       visit root_path
 
-      fill_in "q", with: "foxes"
+      fill_in "word", with: "foxes"
       click_button "Validate Word"
 
       expect(current_path).to eq(root_path)
