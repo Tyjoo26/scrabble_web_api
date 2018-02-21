@@ -4,8 +4,12 @@ class OxfordService
 
 
   def map_json(word)
-    parse_json(word).map do |raw|
-      Input.new(raw)
+    if parse_json(word) == false
+      return false
+    else
+      parse_json(word).map do |raw|
+        Input.new(raw)
+      end
     end
   end
 
@@ -25,7 +29,13 @@ class OxfordService
     end
 
     def parse_json(word)
-      JSON.parse(get_json(word).body, symbolize_names: true)[:results].first[:lexicalEntries]
+      if get_json(word).status == 404
+        false
+      else
+        JSON.parse(get_json(word).body, symbolize_names: true)[:results].first[:lexicalEntries]
+      end
     end
+
+
 
 end

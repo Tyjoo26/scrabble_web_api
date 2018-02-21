@@ -8,7 +8,11 @@ class Input
   end
 
   def self.map_input(word)
-    call_oxford_service.map_json(word).first
+    if call_oxford_service.map_json(word) == false
+      return false
+    else
+      call_oxford_service.map_json(word).first
+    end
   end
 
   private
