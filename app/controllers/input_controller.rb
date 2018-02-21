@@ -2,9 +2,9 @@ class InputController < ApplicationController
 
   def index
     os = OxfordService.new
-    
 
-    os.parse_json
+
+    @input = os.map_json(params["word"])
     binding.pry
   end
 
