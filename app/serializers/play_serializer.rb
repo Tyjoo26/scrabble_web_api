@@ -3,7 +3,7 @@ class PlaySerializer < ActiveModel::Serializer
 
   belongs_to :user
 
-  def score
-    binding.pry
-  end
+  # def score
+  #   binding.pry
+  # end
 end

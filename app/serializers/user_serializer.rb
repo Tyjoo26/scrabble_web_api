@@ -2,7 +2,12 @@ class UserSerializer < ActiveModel::Serializer
   attributes :id , :score
 
 
+  def user_id
+    object.id
+  end
+
+  
   def score
-    binding.pry
+    object.plays.sum(:score)
   end
 end

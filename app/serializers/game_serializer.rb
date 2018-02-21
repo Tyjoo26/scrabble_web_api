@@ -1,8 +1,10 @@
 class GameSerializer < ActiveModel::Serializer
   attributes :game_id
 
-  
-  has_many :plays
+  belongs_to :player_1, class_name: "User", foreign_key: :player_1_id
+  belongs_to :player_2, class_name: "User", foreign_key: :player_2_id
+
+
 
   def game_id
     object.id
