@@ -7,7 +7,6 @@ class Api::V1::PlaysController < ApplicationController
     if plays.save
       render status: 200, json: plays.to_json, :message => "201 Created Response"
     end
-    binding.pry
   end
 
 
