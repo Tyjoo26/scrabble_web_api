@@ -5,8 +5,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :games
+      resources :games do
+        resources :plays
+      end
     end
   end
+
+
 
 end
