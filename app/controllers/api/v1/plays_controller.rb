@@ -1,5 +1,9 @@
 class Api::V1::PlaysController < ApplicationController
 
+  def index
+    game = Game.find(params[:game_id])
+    render json: game.plays.all
+  end
 
   def create
     game = Game.find(params[:game_id])
@@ -14,6 +18,6 @@ class Api::V1::PlaysController < ApplicationController
   private
 
     def play_params
-      params.permit(:user_id, :game_id, :word)
+      params.permit(:user_id, :word)
     end
 end

@@ -26,8 +26,9 @@ describe "API V1 Controller Request spec" do
 
       parsed_response = JSON.parse(response.body, symbolize_names: true)
       plays = Play.last
-  
+
       expect(parsed_response[:score]).to eq(plays.score)
+      
     end
   end
 end
