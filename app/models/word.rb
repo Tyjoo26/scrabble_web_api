@@ -1,7 +1,8 @@
-class Word
+class Input
 
-  def initialize
-
+  def initialize(attrs={})
+    @word = attrs[:id]
+    @root = attrs[]
   end
 
 

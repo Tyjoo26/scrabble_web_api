@@ -11,10 +11,16 @@ class OxfordService
   end
 
   def get_json(word)
-    @conn.get("/inflections/en/#{word}")
+    @conn.get("inflections/en/#{word}")
   end
 
+  def parse_json
+    JSON.parse(get_json(word).body, symbolize_names: true)
+  end
 
-
-
+  def map_json
+    # get_json(word)[:results][0][].map do |raw|
+    #   Input.new(raw)
+    # end
+  end
 end
