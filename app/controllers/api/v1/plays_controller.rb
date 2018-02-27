@@ -1,5 +1,5 @@
 class Api::V1::PlaysController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
 
   def create
     game = Game.find(params[:game_id])
