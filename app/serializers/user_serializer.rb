@@ -6,7 +6,6 @@ class UserSerializer < ActiveModel::Serializer
     object.id
   end
 
-
   def score
     object.plays.sum(:score)
   end
