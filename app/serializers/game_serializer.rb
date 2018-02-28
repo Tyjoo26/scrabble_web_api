@@ -1,8 +1,6 @@
 class GameSerializer < ActiveModel::Serializer
-  attributes :game_id
+  attributes :game_id, :scores
 
-  belongs_to :player_1, class_name: "User", foreign_key: :player_1_id, :key => :scores
-  belongs_to :player_2, class_name: "User", foreign_key: :player_2_id, :key => ""
 
 
 
@@ -10,7 +8,12 @@ class GameSerializer < ActiveModel::Serializer
     object.id
   end
 
-
+  def scores
+    [{user_id: object.player_1.id,
+     score: object.player_1.plays.sum(:score)},
+    {user_id: object.player_2.id,
+     score: object.player_2.plays.sum(:score)}]
+  end
 
 
 
