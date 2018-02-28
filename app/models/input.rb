@@ -25,7 +25,7 @@ class Input
     end
   end
 
-  def self.map_input(word)
+  def self.grab_input(word)
     if map_json(word) == false
       return false
     else
